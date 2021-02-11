@@ -3,9 +3,13 @@
 try{
     if(isset($_SERVER["REQUEST_METHOD"])){
 
+        require("./../repositories/productRepository.php");
+
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             
-            echo("hej hej");
+            
+            echo json_encode(getAllProducts());
+            exit;
 
         }else{
 
