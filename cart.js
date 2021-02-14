@@ -1,12 +1,33 @@
-/*if (localStorage.getItem("cart") === null) {
-    localStorage.setItem('cart');
-}else{
-    console.log('hejhej')
+function initSite(){
+    getCartItems()
 }
+
+//Check localstorage for a key. If noone exist, it creates one. We can then use productList for other purposes
+function getCartItems() {
+    
+    let productList = localStorage.getItem('productsInCart')
+   
+    if (productList !=null) {
+        productList = JSON.parse(productList)    
+    }else{
+        productList = localStorage.setItem(productList);
+        productList = []
+    }
+    cartItemsAmount()
+}
+//Check amounts of objects in productList in order to render that amount on the cart button
+function cartItemsAmount(){
+    cartSpan = productsList.length
+    
+   //document.getElementByName("total-count").innerHTML = productList.length
+}
+/* Clear the cart when pressing the checkout button
+document.getElementByName("...").addEventListener("click", function clearCart(){
+
+    localStorage.clear();
+    location.reload();
+})
 */
-
-
-//const storedOrder = JSON.stringify(window.localStorage.getItem(cart))
 
 
 async function orderDetailes(){
