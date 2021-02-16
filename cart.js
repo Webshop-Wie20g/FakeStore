@@ -1,7 +1,3 @@
-function initSite(){
-    getCartItems()
-}
-
 //Check localstorage for a key. If noone exist, it creates one. We can then use productList for other purposes
 function getCartItems() {
     
@@ -29,21 +25,33 @@ document.getElementByName("...").addEventListener("click", function clearCart(){
 })
 */
 
-
+//Calculate todays date and send it to POST
 async function orderDetailes(){
     
-    let body = new FormData()
-    body.set("test")
-    const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
+    let yyyy = today.getFullYear();
 
+    today = mm + '/' + dd + '/' + yyyy;
+    console.log(today + " detta kommer från cart.js")
+
+    const body = new FormData()
+    body.set("action", "saveOrder")
+    body.set("today", today)
+    
+    const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)
+    console.log(result)
 }
 
+orderDetailes()
 
-async function makeRequest(url, method, body){
+async function makeRequest(url , method , body){
     try{
-        const response = await fetch(url, {method, body})
+        const response = await fetch(url,{method , body})
         return response.json()
-    } catch(err){
+
+    }catch(err) {
         console.log(err)
     }
 }
