@@ -1,3 +1,7 @@
+function initSite(){
+    getCartItems()
+}
+
 //Check localstorage for a key. If noone exist, it creates one. We can then use productList for other purposes
 function getCartItems() {
     
