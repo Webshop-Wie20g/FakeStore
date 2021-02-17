@@ -1,5 +1,7 @@
 <?php
 
+require("./../classes/orderClasses.php");
+
 Class Database {
 
     function __construct(){
@@ -25,11 +27,10 @@ Class Database {
         return $preparedQuery->errorInfo();
     }
 
-    public function fetchQuery($query){
+    public function fetchQuery($query, $class){
         $preparedQuery = $this->prepareQuery($query);
         $preparedQuery->execute();
-        return $preparedQuery->fetchAll(PDO::FETCH_OBJ);
-
+        return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
    

@@ -5,6 +5,11 @@ require("./../handlers/databaseHandler.php");
 function saveOrder($order) {
     $db = new Database();
 
-    return $db->runQuery("INSERT INTO orders (date) VALUES (:date)", $order);
+    $orderToAdd = new Order();
+    
+    $orderToAdd->id = null;
+    $orderToAdd->date = $order->date;
+
+      $db->runQuery("INSERT INTO orders (date) VALUES (:date)", $order);
 }
 ?>
