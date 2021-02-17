@@ -6,10 +6,10 @@ try{
     if(isset($_SERVER["REQUEST_METHOD"])) {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
           
-            if($_POST["action"] == "saveOrder") {
+           // if($_POST["action"] == "saveOrder") {
                 $order = json_decode($_POST["today"], true);
-                echo json_decode(storeOrder($order));
-            }
+                json_decode(saveOrder($order));
+            //}
 
         }else{
 
