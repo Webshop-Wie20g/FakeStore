@@ -34,7 +34,7 @@ async function orderDetailes(){
     console.log(today);
 
     let body = new FormData()
-    body.set("action", "saveOrder")
+   // body.set("action", "saveOrder")
     body.set("today", JSON.stringify(today))
 
     const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)

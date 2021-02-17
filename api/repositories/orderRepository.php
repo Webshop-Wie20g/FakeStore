@@ -1,8 +1,10 @@
 <?php
-require("./../handlers/databaseHandler.php");
-require("./../classes/orderClasses.php")
 
-function saveOrder($order) {
+require("./../handlers/databaseHandler.php");
+
+function storeOrder(){
+
     $db = new Database();
-    return $db->runQuery("INSERT INTO orders (date) VALUES (:date)", $order);
+    return $db->fetchQuery("INSERT INTO orders (date) VALUES (:today);");
+
 }
