@@ -5,11 +5,14 @@ require("./../repositories/orderRepository.php");
 try{
     if(isset($_SERVER["REQUEST_METHOD"])) {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
-          
-           // if($_POST["action"] == "saveOrder") {
-                $order = json_decode($_POST["today"], true);
-                json_decode(saveOrder($order));
-            //}
+            if($_POST["action"] == "saveOrder") {
+                $order = json_decode($_POST["order"], true);
+                
+                //echo json_encode(gettype($order));
+                echo json_encode(saveOrder($order));
+               
+                 exit;
+            }
 
         }else{
 

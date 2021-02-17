@@ -22,7 +22,7 @@ Class Database {
     public function runQuery($query, $entity) {
         $preparedQuery = $this->prepareQuery($query);
         $status = $preparedQuery->execute($entity);
-        return $status;
+        return $preparedQuery->errorInfo();
     }
 
     public function fetchQuery($query){
@@ -31,6 +31,20 @@ Class Database {
         return $preparedQuery->fetchAll(PDO::FETCH_OBJ);
 
     }
+
+   
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
