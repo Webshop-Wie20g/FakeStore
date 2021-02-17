@@ -52,32 +52,7 @@ function renderProducts(productList){
   
 }
 
-function setItems(products){
-    console.log(products)
-    
-    let cartItems = localStorage.getItem("productsInCart")
-    
-    // hämtar och sparar prudukterna från LocalStorage och parsar om till object
-    
-    if(cartItems !=null){
-        cartItems = JSON.parse(cartItems)
 
-    }else{
-        
-        cartItems = [] 
-        
-    }
-    
-    cartItems.push(products)
-    // pushar in product i array
-    
-    document.getElementById("cartSpan").innerHTML = cartItems.length
-    // cartSpan får får samma värde som lika många produkter i cartItems
-    
-    localStorage.setItem("productsInCart", JSON.stringify(cartItems))
-    //sparar en key och gör om från object till string så den kan sparar i localStorage
-}
-setItems()
 
 async function makeRequest(url , method , body){
     try{
