@@ -1,14 +1,19 @@
 <?php
+session_start();
+require("./../repositories/orderRepository.php");
 
 try{
-    session_start();
-
     if(isset($_SERVER["REQUEST_METHOD"])) {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
-            
-            echo json_encode(true);
+          
+            if($_POST["action"] == "saveOrder") {
+                $order = json_decode($_POST["today"], true);
+                echo json_decode(storeOrder($order));
+            }
+
         }else{
-            throw new ErrorException("Wrong reqest method used", 405);
+
+            throw new ErrorException("Wrong request method used", 405);
         }
 
     }else{
@@ -17,5 +22,9 @@ try{
     }
 } catch(Exception $e){
     http_response_code($e->getCode());
-    echo json_encode(array("status" => $e->getCode(), "Message" => $e->getMessage()));
-} 
+    echo json_encode(array(
+        "status" => $e->getCode(),
+         "Message" => $e->getMessage()
+        )
+    );
+}
