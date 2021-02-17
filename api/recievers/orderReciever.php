@@ -2,11 +2,17 @@
 
 try{
     session_start();
-
+    require('./../repositories/orderRepository.php');
     if(isset($_SERVER["REQUEST_METHOD"])) {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             
-            echo json_encode(true);
+            if($_POST['action'] == 'saveOrder'){
+
+                $order = json_decode($_POST['today'], true);
+                json_encode(saveOrder($order)); 
+ 
+                exit;
+            }
         }else{
             throw new ErrorException("Wrong reqest method used", 405);
         }
