@@ -9,7 +9,7 @@ Class Database {
         $pass = "root";
 
         $this->db = new PDO($dns, $user, $pass);
-        $this->db-exec("set names utf8");
+        $this->db->exec("set names utf8");
     }
 
     public $db;

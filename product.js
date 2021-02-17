@@ -1,26 +1,58 @@
 window.addEventListener("load", initsite)
 
 
-function initsite(){
-    getAllProducts()
+async function initsite(){
+    const products = await makeRequest("./api/recievers/productReciever.php", "GET")
     
+    renderProducts(products)
+    console.log(products)
 }
 
-async function getAllProducts(){
-    const result = await makeRequest("./api/recievers/productReciever.php", "GET")
-    console.log(result)
+function renderProducts(productList){
     
-   /*  if(result !=undefined){
-        result = JSON.parse(result)
+    let mainContainer = document.getElementById("mainContainer")
+    
+    
+    
+    productList.forEach((product) => {
+        let productCard = document.createElement("div")
+        productCard.classList.add("productCard")
+        
+        let nameContainer = document.createElement("h7")
+        nameContainer.innerText = product.name
+        nameContainer.id = "nameContainer"
+        nameContainer.style.marginLeft = "4%"
 
-    }else{
+        let descContainer = document.createElement("h7")
+        descContainer.innerText = product.description
+        descContainer.id = "descContainer"
+
+        let buyBtn = document.createElement("button")
+        buyBtn.innerText = "Add to cart"
+        buyBtn.style.backgroundColor = "#F7941D"
+        buyBtn.style.color = "white"
         
-        result = [] 
+
+        let priceContainer = document.createElement("h7")
+        priceContainer.innerText = product.price + " kr"
+        priceContainer.id = "priceContainer"
+
+
+        let imgContainer = document.createElement("img")
+        imgContainer.id = "imgContainer"
         
-    } */
+        priceContainer.appendChild(buyBtn)
+        productCard.append(imgContainer, nameContainer, descContainer, priceContainer)
+        mainContainer.appendChild(productCard)
+    });
     
-    /* console.log(result) */
+    
+    
+    
+  
 }
+
+
 
 async function makeRequest(url , method , body){
     try{
