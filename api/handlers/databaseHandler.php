@@ -1,5 +1,5 @@
 <?php
-
+require("./../classes/productClasses.php");
 Class Database {
 
     function __construct(){
@@ -25,10 +25,10 @@ Class Database {
         return $status;
     }
 
-    public function fetchQuery($query){
+    public function fetchQuery($query, $class){
         $preparedQuery = $this->prepareQuery($query);
         $preparedQuery->execute();
-        return $preparedQuery->fetchAll(PDO::FETCH_OBJ);
+        return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
 
     }
 
