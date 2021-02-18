@@ -32,13 +32,15 @@ async function orderDetailes(){
 
     today = mm + '/' + dd + '/' + yyyy;
     console.log(today);
-
+    let newOrder = {
+        date: today
+    }
     let body = new FormData()
-   // body.set("action", "saveOrder")
-    body.set("today", JSON.stringify(today))
+    body.set("action", "saveOrder")
+    body.set("order", JSON.stringify(newOrder))
 
     const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)
-
+    console.log(result)
 }
 
 orderDetailes()

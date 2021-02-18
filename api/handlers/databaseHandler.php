@@ -1,5 +1,9 @@
 <?php
+
+require("./../classes/orderClasses.php");
+
 require("./../classes/productClasses.php");
+
 Class Database {
 
     function __construct(){
@@ -22,15 +26,28 @@ Class Database {
     public function runQuery($query, $entity) {
         $preparedQuery = $this->prepareQuery($query);
         $status = $preparedQuery->execute($entity);
-        return $status;
+        return $preparedQuery->errorInfo();
     }
 
     public function fetchQuery($query, $class){
         $preparedQuery = $this->prepareQuery($query);
         $preparedQuery->execute();
         return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
-
     }
+
+   
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
