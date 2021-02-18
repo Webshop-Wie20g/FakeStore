@@ -2,6 +2,8 @@
 
 require("./../classes/orderClasses.php");
 
+require("./../classes/productClasses.php");
+
 Class Database {
 
     function __construct(){
