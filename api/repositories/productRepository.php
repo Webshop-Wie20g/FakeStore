@@ -4,7 +4,7 @@ require("./../handlers/databaseHandler.php");
 
 function getAllProducts(){
     $db = new Database();
-    return $db->fetchQuery("SELECT * FROM products");
+    return $db->fetchQuery("SELECT * FROM products", "product");
     
     
 }
