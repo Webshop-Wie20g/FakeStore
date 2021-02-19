@@ -3,38 +3,12 @@ window.addEventListener("load", initsite)
 
 
 async function initsite(){
-    const products = await makeRequest("./api/recievers/productReciever.php", "GET")
+    const product = await makeRequest("./api/recievers/productReciever.php", "GET")
     
-    renderProducts(products)
-    console.log(products)
+    renderProducts(product)
+    console.log(product)
 }
 
-async function setCart(){
-    let dateToSave = document.getElementById("dateInput").value
-    let month = dateToSave[5]+dateToSave[6]
-    let day = dateToSave[8]+dateToSave[9]
-    
-    
-    if(!dateToSave.length) {
-        
-        return
-    }
-    
-    const body = new FormData()
-    
-    body.set("day", day)
-    body.set("month", month)
-    
-    const collectedName = await makeRequest("./server/addHoroscope.php" , "POST",body)
-    console.log(collectedName)
-    
-    
-
-    
-    
-    
-    
-}
 
 function renderProducts(productList){
     
@@ -43,6 +17,7 @@ function renderProducts(productList){
     
     
     productList.forEach((product) => {
+        console.log(product)
         let productCard = document.createElement("div")
         productCard.classList.add("productCard")
         
@@ -59,10 +34,9 @@ function renderProducts(productList){
         buyBtn.innerText = "Add to cart"
         buyBtn.style.backgroundColor = "#F7941D"
         buyBtn.style.color = "white"
-        buyBtn.addEventListener("click",function(){
+        buyBtn.data = product
 
-            
-        })
+        buyBtn.addEventListener("click",setItems )
         
 
         let priceContainer = document.createElement("h7")
@@ -82,6 +56,46 @@ function renderProducts(productList){
     
     
   
+}
+
+function setItems(product){
+    
+    let productToAdd = this.data
+    let cart = localStorage.getItem("cart")
+    console.log(productToAdd)
+    
+    
+    
+    
+    if(!cart){
+        
+        cart = [] 
+    }else{
+        
+        cart = JSON.parse(cart)
+        
+    }
+
+    let foundIndex = cart.findIndex((cartItem)=>{
+        return cartItem.product.id == productToAdd.id
+
+
+    })
+   
+    
+    
+    if(foundIndex != -1){
+        cart[foundIndex].quantity++
+    }else{
+        cart.push({
+            product: productToAdd,
+            quantity: 1
+        })
+        
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart))
+    
 }
 
 
