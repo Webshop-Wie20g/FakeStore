@@ -15,7 +15,7 @@ class product {
     public $name;
     public $price;
     public $description;
-    public $unitInStock;
+    public $unitsInStock;
  
 }
 
