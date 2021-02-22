@@ -35,19 +35,5 @@ Class Database {
         return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
