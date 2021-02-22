@@ -1,27 +1,22 @@
-function initSite(){
-    getCartItems()
-}
+//getCartItems()
 
-//Check localstorage for a key. If noone exist, it creates one. We can then use productList for other purposes
-function getCartItems() {
-    
-    let productList = localStorage.getItem('productsInCart')
-   
-    if (productList !=null) {
-        productList = JSON.parse(productList)    
-    }else{
-        productList = localStorage.setItem(productList);
-        productList = []
-    }
-    cartItemsAmount()
-}
 //Check amounts of objects in productList in order to render that amount on the cart button
-function cartItemsAmount(){
+function cartSpan(){
     cartSpan = productsList.length
     
-   //document.getElementByName("total-count").innerHTML = productList.length
+   document.getElementById("cartSpan").innerHTML = productList.length
 }
+function checkout(){
 
+    // behöver skicka localstorage[cart] som order till databasen innan localStorage.clear körs
+    orderDetailes()
+
+    alert("Tack för ditt köp!");
+
+    localStorage.clear();
+    location.reload();
+
+}
 
 async function orderDetailes(){
     
@@ -32,9 +27,12 @@ async function orderDetailes(){
 
     today = mm + '/' + dd + '/' + yyyy;
     console.log(today);
-    let newOrder = {
+    
+    const newOrder = {
         date: today
     }
+    console.log("newOrder = ", newOrder)
+    
     let body = new FormData()
     body.set("action", "saveOrder")
     body.set("order", JSON.stringify(newOrder))
@@ -52,4 +50,30 @@ async function makeRequest(url, method, body){
     } catch(err){
         console.log(err)
     }
+}
+
+
+function getCartItems() {
+let productList = localStorage.getItem('productsInCart')
+   
+    if (productList !=null) {
+        productList = JSON.parse(productList)    
+    
+    /*}   else{
+        productList = localStorage.setItem(productList);
+        productList = []
+    */
+    cartSpan()
+    }
+
+/*
+    let showTotal = 0
+
+    for (let i = 0; i < productList.length; i++) {
+        
+        productList = product[i];
+
+
+    }
+*/
 }
