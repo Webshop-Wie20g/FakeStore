@@ -46,6 +46,7 @@ function renderProducts(productList){
 
         let imgContainer = document.createElement("img")
         imgContainer.id = "imgContainer"
+        imgContainer.src = product.image
         
         priceContainer.appendChild(buyBtn)
         productCard.append(imgContainer, nameContainer, descContainer, priceContainer)
