@@ -1,7 +1,7 @@
 <?php
 
 require("./../classes/orderClasses.php");
-
+require("./../classes/categoryClasses.php");
 require("./../classes/productClasses.php");
 
 Class Database {

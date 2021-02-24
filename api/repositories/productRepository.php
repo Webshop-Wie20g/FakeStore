@@ -9,6 +9,13 @@ function getAllProducts(){
     
 }
 
+function getAllcategories(){
+    $db = new Database();
+    return $db->fetchQuery("SELECT * FROM categories", "category");
+    
+    
+}
+
 
 
 

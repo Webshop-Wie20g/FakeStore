@@ -8,8 +8,8 @@ try{
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             
             
-            echo json_encode(getAllProducts());
             
+            echo json_encode(getAllcategories());
             
             exit;
 
