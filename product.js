@@ -17,7 +17,7 @@ function renderProducts(productList){
     
     
     productList.forEach((product) => {
-        console.log(product)
+        
         let productCard = document.createElement("div")
         productCard.classList.add("productCard")
         
@@ -63,7 +63,7 @@ function setItems(product){
     
     let productToAdd = this.data
     let cart = localStorage.getItem("cart")
-    console.log(productToAdd)
+    
     
     
     

@@ -23,9 +23,9 @@ Class Database {
         
     }
 
-    public function runQuery($query, $entity) {
+    public function runQuery($query, $class) {
         $preparedQuery = $this->prepareQuery($query);
-        $status = $preparedQuery->execute($entity);
+        $status = $preparedQuery->execute($class);
         return $preparedQuery->errorInfo();
     }
 
