@@ -10,6 +10,6 @@ function saveOrder($order) {
     $orderToAdd->id = null;
     $orderToAdd->date = $order->date;
 
-    return $db->runQuery("INSERT INTO orders (date) VALUES (:date);", $order);
+      $db->runQuery("INSERT INTO orders (date) VALUES (:date)", $order);
 }
 ?>

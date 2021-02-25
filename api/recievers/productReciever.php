@@ -9,8 +9,6 @@ try{
             
             
             echo json_encode(getAllProducts());
-            
-            
             exit;
 
         }else{
@@ -34,6 +32,21 @@ try{
     );
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ?>
