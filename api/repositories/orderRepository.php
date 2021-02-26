@@ -10,9 +10,10 @@ function saveOrder($order) {
     $orderToAdd->id = null;
     $orderToAdd->date = $order->date;
 
-
+    error_log(json_encode($orderToAdd));
+ 
     $db->runQuery("INSERT INTO orders (date) VALUES (:date);", $order);
-
+   /*
     //orderid från db
     error_log(json_encode($order["cartItems"]));
     foreach ($order["cartItems"] as $cartItem){
@@ -27,13 +28,14 @@ function saveOrder($order) {
         
 
     $db->runQuery("INSERT INTO test (productId, quantity) VALUES (:productId, :quantity);", $sqlArray);
-    };
+    };*/
 }
 
 function getAllShippers(){
+
     $db = new Database();
 
-    return $db->fetchQuery("SELECT name FROM shipper", "shipper");
+    return $db->fetchQuery("SELECT name FROM shippers", "Shipper");
 
 }
 

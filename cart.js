@@ -1,14 +1,5 @@
 window.addEventListener("load", initsite())
 document.getElementById("checkOutBtn").addEventListener("click", checkOut)
-document.getElementById("testBtn").addEventListener("click", getproductId)
-
-/*document.getElementById("testBtn").addEventListener("click", function test(){
-
-    alert("tack för ditt köp")
-    orderDetailes()
-    localStorage.clear("cart");
-    location.reload();
-})*/
 
 function initsite(){
     
@@ -32,8 +23,7 @@ function cartSpan(){
     //document.getElementById("cartSpan").innerHTML = productList.length
 }
 function checkOut(){
-
-//    behöver skicka localstorage[cart] som order till databasen innan localStorage.clear körs
+    
     orderDetailes()
 /*    alert("Thank you for buying")
     localStorage.clear()
@@ -53,14 +43,16 @@ async function orderDetailes(){
     
 
     const newOrder = {
-        date: today,
-        cartItems: JSON.stringify(productList)
+        date: today
+    //    cartItems: JSON.stringify(productList)
     }
 
     let body = new FormData()
     body.set("action", "saveOrder")
     body.set("order", JSON.stringify(newOrder))
-console.log("detta kommer från cart.js ", newOrder)
+
+    console.log("detta kommer från cart.js ", newOrder)
+
     const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)
     console.log(result)
 }
@@ -91,7 +83,7 @@ function getproductId(){
         
         productNr++
     })
-console.log(productIdArray)
+    
 }
 
 
@@ -101,7 +93,7 @@ function getCartItems() {
    productList = JSON.parse(productList)
 
    
-   let mainContainer = document.getElementById("mainContainer")
+   let mainContainerCart = document.getElementById("mainContainerCart")
     
     let productNr = 0
     let showTotal = 0
@@ -145,7 +137,7 @@ function getCartItems() {
        
     priceContainer.appendChild(buyBtn)
     productCard.append(imgContainer, nameContainer, descContainer, priceContainer, quantityContainer)
-    mainContainer.appendChild(productCard)
+    mainContainerCart.appendChild(productCard)
 
     productNr++
     console.log(showTotal)
@@ -154,7 +146,27 @@ function getCartItems() {
     
 }
 
+
+
 async function getShippers(){
     const result = await makeRequest("./api/recievers/orderReciever.php", "GET")
-    console.log(result)
+    
+        let resultNr = 0
+        const shipperArray = []
+
+        result.forEach((name) => {
+            
+            let shipper = (result[resultNr].name)
+            shipperArray.push(shipper)
+
+
+            console.log(result[resultNr].name)
+    
+            resultNr++
+    });
+        
+    
+    
 }
+
+getShippers()

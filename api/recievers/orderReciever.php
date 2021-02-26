@@ -13,9 +13,8 @@ try{
         if($_SERVER["REQUEST_METHOD"] == "POST") {        
             if($_POST["action"] == "saveOrder") {
                 
-                $order = $_SESSION["order"];
                 $order = json_decode($_POST["order"], true);
-                
+
                 echo json_encode(saveOrder($order));
 
                  exit;
@@ -27,6 +26,7 @@ try{
             
             
             echo json_encode(getAllShippers());
+           
             exit;
 
         }
