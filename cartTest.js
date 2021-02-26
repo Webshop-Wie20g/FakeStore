@@ -1,30 +1,19 @@
 window.addEventListener("load", initsite())
-document.getElementById("checkOutBtn").addEventListener("click", checkOut)
-document.getElementById("testBtn").addEventListener("click", getproductId)
-
-/*document.getElementById("testBtn").addEventListener("click", function test(){
-
-    alert("tack för ditt köp")
-    orderDetailes()
-    localStorage.clear("cart");
-    location.reload();
-})*/
+document.getElementById("checkOutBtn").addEventListener("click", checkOut())
 
 function initsite(){
     
+    let productList = localStorage.getItem('cart')
     
-    if (localStorage.getItem('cart') !=null) {
+    if (productList !=null) {
    
         getCartItems()
-    }else{
-        console.log("inga produkter i cart")
     }
-    
     
 }
 
 //Check amounts of objects in productList in order to render that amount on the cart button
-function cartSpan(){
+async function cartSpan(){
     
     let productList = localStorage.getItem('cart')
     productList = JSON.parse(productList)
@@ -33,34 +22,37 @@ function cartSpan(){
 }
 function checkOut(){
 
-//    behöver skicka localstorage[cart] som order till databasen innan localStorage.clear körs
-    orderDetailes()
-/*    alert("Thank you for buying")
-    localStorage.clear()
-    location.reload()
-*/
+    // behöver skicka localstorage[cart] som order till databasen innan localStorage.clear körs
+  //  orderDetailes()
+
+    alert("Tack för ditt köp!");
+
+ //   localStorage.clear();
+ //   location.reload();
+
 }
 
 async function orderDetailes(){
-    let productList = localStorage.getItem('cart')
-
+    let productList = JSON.parse(localStorage.getItem('cart'))
+    
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
 
     today = mm + '/' + dd + '/' + yyyy;
-    
+
+    let name = productList[1]
 
     const newOrder = {
         date: today,
-        cartItems: JSON.stringify(productList)
+        name: name
     }
-
+    
     let body = new FormData()
     body.set("action", "saveOrder")
     body.set("order", JSON.stringify(newOrder))
-console.log("detta kommer från cart.js ", newOrder)
+
     const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)
     console.log(result)
 }
@@ -75,28 +67,17 @@ async function makeRequest(url, method, body){
     }
 }
 
-productIdArray = [0]
-
-function getproductId(){
-
-    let productList = localStorage.getItem('cart')
-    productList = JSON.parse(productList)
-
-
-
-    let productNr = 0
-    productList.forEach((product) => {
-        productId = productList[productNr].product.id
-        productIdArray.push(productId)
-        
-        productNr++
-    })
-console.log(productIdArray)
-}
-
 
 function getCartItems() {
-    let productList = localStorage.getItem('cart')
+let productList = localStorage.getItem('cart')
+   /*
+    if (productList !=null) {
+        productList = JSON.parse(productList)    
+    
+    }   else{
+        productList = localStorage.setItem(productList);
+        productList = []
+    */
         
    productList = JSON.parse(productList)
 
@@ -129,10 +110,7 @@ function getCartItems() {
     buyBtn.style.color = "white"
     buyBtn.data = product
 
-    let quantityContainer = document.createElement("h7")
-    quantityContainer.innerText = productList[productNr].quantity
-    quantityContainer.id = "quantityContainer"
-
+       
 
     let priceContainer = document.createElement("h7")
     priceContainer.innerText = productList[productNr].product.price + " kr"
@@ -144,7 +122,7 @@ function getCartItems() {
     imgContainer.src = productList[productNr].product.image
        
     priceContainer.appendChild(buyBtn)
-    productCard.append(imgContainer, nameContainer, descContainer, priceContainer, quantityContainer)
+    productCard.append(imgContainer, nameContainer, descContainer, priceContainer)
     mainContainer.appendChild(productCard)
 
     productNr++
@@ -152,9 +130,5 @@ function getCartItems() {
     document.getElementById("totalCost").innerHTML = showTotal
     });
     
-}
 
-async function getShippers(){
-    const result = await makeRequest("./api/recievers/orderReciever.php", "GET")
-    console.log(result)
 }
