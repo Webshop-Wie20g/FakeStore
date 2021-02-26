@@ -6,12 +6,11 @@ try{
         require("./../repositories/productRepository.php");
 
         if($_SERVER["REQUEST_METHOD"] == "GET"){
-            if($_GET["action"]== "getTvCategory"){
-                echo json_encode(getTvCategory());
-                exit;
-                
-            }
+            
+            
+            
             echo json_encode(getAllcategories());
+            
             exit;
 
         }else{
