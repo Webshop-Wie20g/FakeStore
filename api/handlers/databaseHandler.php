@@ -1,10 +1,8 @@
 <?php
 
 require("./../classes/orderClasses.php");
-
+require("./../classes/categoryClasses.php");
 require("./../classes/productClasses.php");
-
-require("./../classes/newsletterClass.php");
 
 Class Database {
 
@@ -25,9 +23,9 @@ Class Database {
         
     }
 
-    public function runQuery($query, $entity) {
+    public function runQuery($query, $class) {
         $preparedQuery = $this->prepareQuery($query);
-        $status = $preparedQuery->execute($entity);
+        $status = $preparedQuery->execute($class);
         return $preparedQuery->errorInfo();
     }
 
@@ -37,8 +35,5 @@ Class Database {
         return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-
-
-
-
+}
 ?>
