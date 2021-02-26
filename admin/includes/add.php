@@ -1,32 +1,44 @@
 <?php
 session_start();
+   require_once("../../api/repositories/UserRepository.php");
+   $user = new User();
+   if (isset($_SESSION["user"])) {
+      $username = $_SESSION["user"];
+      if ($user->adminChecker($username) != true) {
+         header("Location: ../index.php");
+         exit();
+      } 
 
+   } else {
+      echo var_dump($_SESSION);
+      header("Location: ../index.php");
+      exit();
+   }
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="style.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" type="text/css" href="../style/style.css">
+      <script src="../admin.js"></script>
+      <title>Admin page</title>
 </head>
-
-<body>
-  
-  <div class=" mb-5 mt-5">
-
+   <body>
+   <?php include 'header.php';?>
+  <div class="job-profile mb-4">
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-4 col-lg-3">
+<?php include 'sidebar.php';?>
 
-        <div class=" details col-md-8 offset-md-2">
+        </div>
+        <div class="col-md-8 col-lg-9">
+          <div class="job-profile-details" id="ProductList">
+            <h2>Add New Product</h2>
 
-          <h3 class="text-center">Add New Product</h3>
-          <form action="">
+            <form>
             <div class="form-group">
               <label for="inputid1">Name</label>
               <input type="text" class="form-control" placeholder="" id="name" required>
@@ -55,15 +67,14 @@ session_start();
             </div>
             <button type="submit" class="btn btn-success" onclick="addProduct()">Add Product</button>
           </form>
-        </div>
+          </div>
+          </div>
+          </div>
       </div>
     </div>
 
+
+
   </div>
-  </div>
 
-  <script src="../admin.js"></script>
-
-</body>
-
-</html>
+<?php include("footer.php");?>

@@ -1,5 +1,5 @@
 <?php
-require_once('../handlers/databaseHandler.php');
+require_once('../../admin/db.php');
 
 class Admin{
     private $connection;
@@ -10,7 +10,7 @@ class Admin{
         $this->connection = $this->database->connect();
     }
 
-  
+    
 
     function productLoaderAdmin() {
         $sql = "SELECT id, name, price, unitsInStock FROM products ";
@@ -52,7 +52,6 @@ class Admin{
         }
 
     }
-
         function getProductList() {
             $sql = "SELECT id, name FROM products ";
             $statement = $this->connection->prepare($sql);
@@ -85,7 +84,25 @@ class Admin{
     }
 
 
-    
+
+
+    function showSubscribers() {
+        $sql = "SELECT id,email, userName FROM users WHERE subscriber = 1";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
+
+    function showOrders() {
+        $sql = "SELECT * FROM orders";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll();
+        return $res;
+    }
+
     
 }
 ?>
