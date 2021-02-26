@@ -3,10 +3,10 @@ window.addEventListener("load", initsite)
 
 
 async function initsite(){
-    const product = await makeRequest("./api/recievers/productReciever.php", "GET")
+    const product = await makeRequest("./api/recievers/categoryReciever.php?action=getPhoneCategory", "GET")
     
     renderProducts(product)
-    
+    console.log(product)
 }
 
 
