@@ -10,6 +10,12 @@ try{
                 echo json_encode(getTvCategory());
                 exit;
                 
+            }elseif ($_GET["action"]== "getPcCategory") {
+                echo json_encode(getPcCategory());
+                exit;
+            }elseif ($_GET["action"]== "getPhoneCategory") {
+                echo json_encode(getPhoneCategory());
+                exit;
             }
             echo json_encode(getAllcategories());
             exit;
