@@ -12,7 +12,7 @@ class category {
     }
     
     public $id;
-    /* public $name; */
+    public $name;
     
     
 }
