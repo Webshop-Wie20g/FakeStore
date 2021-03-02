@@ -11,13 +11,14 @@ async function addNewsletter() {
     body.append("action", "add")
     body.append("newsletter", JSON.stringify(newsletter))
 
-    const result = await makeRequest("./api/recievers/newsletterReciver.php", "POST", body)
+    const result = await makeRequest("./api/recievers/newsletterReceiver.php", "POST", body)
     console.log(result)
 }
 async function makeRequest(url, method, body) {
+    console.log(url,method)
     try{
-        const response = await fetch(url, {method,body})
-        return response.json() 
+        const response = await fetch(url, {method, body})
+        return await response.json() 
     } catch(err) {
         console.log(err)
     }
