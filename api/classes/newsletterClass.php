@@ -1,6 +1,6 @@
 <?php
 
-class newsletter {
+class Newsletter {
 
     function __construct() {
         $this->id = intval($this->id);
