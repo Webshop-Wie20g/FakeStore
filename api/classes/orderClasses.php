@@ -4,10 +4,36 @@ class Order {
 
     function __construct() {
         $this->id = intval($this->id);
-        $this->date = intval($this->date);
+
     }
 
+    
     public $id;
     public $date;
 
 }
+
+
+class OrderItem{
+
+    function __construct() {
+        $this->productId = intval($this->productId);
+        $this->quantity = intval($this->quantity);
+    }
+    public $productId;
+    public $quantity;
+
+}
+
+
+
+class Shipper {
+
+    function __construct() {
+
+
+    }
+
+    public $name;
+}
+
