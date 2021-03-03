@@ -1,8 +1,8 @@
 <?php
 class Database {
-    private $dsn = "mysql:host=localhost;dbname=store2;charset=utf8";
-    private $user = "shah";
-    private $password = "";
+    private $dsn = "mysql:host=localhost;dbname=store;charset=utf8";
+    private $user = "root";
+    private $password = "root";
     public $PDO;
     function __construct() {
         try{
