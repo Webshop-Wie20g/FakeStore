@@ -6,12 +6,11 @@ require("./../classes/productClasses.php");
 
 require("./../classes/newsletterClass.php");
 
-
 Class Database {
 
     function __construct(){
 
-        $dns = "mysql:host=localhost;dbname=store";
+        $dns = "mysql:host=localhost;dbname=store4";
         $user = "root";
         $pass = "root";
 
