@@ -20,18 +20,19 @@ function renderCategories(categoriesList){
         let productCard = document.createElement("div")
         productCard.classList.add("productCard")
         
-        let nameContainer = document.createElement("h7")
+        let nameContainer = document.createElement("a")
         nameContainer.innerText = categories.name
         nameContainer.id = "nameContainer"
         nameContainer.style.marginLeft = "4%"
+        if (nameContainer.innerText == "TV"){
+            nameContainer.href = "/tv.html"
 
-        
+        }else if(nameContainer.innerText == "Datorer"){
+            nameContainer.href = "/pc.html"
+        }else if(nameContainer.innerText == "Telefoner"){
+            nameContainer.href = "/phone.html"
+        }
 
-      
-        
-
-       
-        
         
         productCard.append(nameContainer)
         mainContainer.appendChild(productCard)
