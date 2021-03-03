@@ -1,6 +1,6 @@
 <?php
 class Database {
-    private $dsn = "mysql:host=localhost;dbname=store4;charset=utf8";
+    private $dsn = "mysql:host=localhost;dbname=store5;charset=utf8";
     private $user = "root";
     private $password = "root";
     public $PDO;
