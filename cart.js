@@ -121,6 +121,7 @@ function getCartItems() {
     buyBtn.style.color = "white"
     buyBtn.data = product
 
+
     let quantityContainer = document.createElement("h7")
     quantityContainer.innerText = productList[productNr].quantity
     quantityContainer.id = "quantityContainer"
@@ -139,6 +140,8 @@ function getCartItems() {
     productCard.append(imgContainer, nameContainer, descContainer, priceContainer, quantityContainer)
     mainContainerCart.appendChild(productCard)
 
+
+
     productNr++
     console.log(showTotal)
     document.getElementById("totalCost").innerHTML = showTotal
@@ -154,17 +157,51 @@ async function getShippers(){
         let resultNr = 0
         const shipperArray = []
 
+       
         result.forEach((name) => {
             
+        document.getElementById('name').value="result[resultNr].name"
+        resultNr++
+
+ /* 
+            let shipperResult = document.getElementById("name").value
+
+            let body = new FormData()
+            body.append("shipper", "1231243")
+
+
+
+
+
+          document.getElementById("shipperOne").value= "123"
+            
+
+
+            document.getElementById('personlist').value=Person_ID;
+
+
             let shipper = (result[resultNr].name)
             shipperArray.push(shipper)
 
 
             console.log(result[resultNr].name)
     
-            resultNr++
+            
+ shipperResult.getAttribute("value", result[resultNr].name) 
+         
+
+									<select>
+										<option selected="selected">All Category</option>
+										<option>watch</option>
+										<option>mobile</option>
+										<option>kid’s item</option>
+									</select>
+
+
+        */  
     });
-        
+
+
     
     
 }
