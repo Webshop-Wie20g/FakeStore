@@ -8,7 +8,6 @@ async function makeRequest(url,method,body){
     return respone.json()
 
 } catch(error) {
-        console.log(error)
     }
 
 }
@@ -18,7 +17,6 @@ async function getAllproductsFromAdmin(){
     body.append("action", "productList")
 
     const results = await makeRequest("../../api/recievers/AdminReciever.php","POST",body)
-    console.log(results);
     var table = document.createElement("table");
     table.className = "table"
                     var productID = document.createElement("th");
@@ -84,7 +82,6 @@ async function addProduct(name,price,description,unitsInStock,image){
       
   
       const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
-      console.log(results)
       
     //   window.location("admin.php")
   }
@@ -94,7 +91,6 @@ async function addProduct(name,price,description,unitsInStock,image){
 
     const results = await makeRequest("../../api/recievers/AdminReciever.php","GET")
     
-    console.log(results);
     
     for (var i = 0; i < results.length; i++) {
         var option = document.createElement("option");
@@ -112,7 +108,6 @@ async function addProduct(name,price,description,unitsInStock,image){
   async function removeProductFromList(productIds){
 
     let productid = document.getElementById("id").value
-    console.log(productid)
 
     let body = new FormData()
     body.append("action","remove")
@@ -120,7 +115,6 @@ async function addProduct(name,price,description,unitsInStock,image){
     
 
     const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
-    console.log(results)
     if(results){
         alert("product removed")
         location.reload();
@@ -142,7 +136,6 @@ async function update(id,stock) {
     body.append("id",productid)
     body.append("amount",amount)
     const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
-    console.log(results)
     if(results){
         alert("product updated")
         location.reload();
@@ -156,7 +149,6 @@ async function showNewsLetterSubscribers() {
     body.append("action", "showSubscribers")
 
     const results = await makeRequest("../../api/recievers/AdminReciever.php","POST",body)
-    console.log(results);
     var table = document.createElement("table");
     table.className = "table"
                     var productID = document.createElement("th");
@@ -198,7 +190,6 @@ async function getOrders(){
     body.append("action", "orderList")
 
     const results = await makeRequest("../../api/recievers/AdminReciever.php","POST",body)
-    console.log(results);
     var table = document.createElement("table");
     table.className = "table"
                     var dateth = document.createElement("th");
@@ -248,7 +239,6 @@ async function makeRequest(url,method,body){
     return respone.json()
 
 } catch(error) {
-        console.log(error)
     }
 
 }
