@@ -10,7 +10,7 @@ Class Database {
 
     function __construct(){
 
-        $dns = "mysql:host=localhost;dbname=store4";
+        $dns = "mysql:host=localhost;dbname=store5";
         $user = "root";
         $pass = "root";
 
@@ -36,5 +36,10 @@ Class Database {
         $preparedQuery->execute();
         return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
     }
+
+    public function connect() {
+        return $this->db;
+    }
 }
 ?>
+
