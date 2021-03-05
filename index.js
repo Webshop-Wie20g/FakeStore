@@ -6,7 +6,7 @@ async function initsite(){
     const categories = await makeRequest("./api/recievers/categoryReciever.php", "GET")
     
     renderCategories(categories)
-    console.log(categories)
+    
 }
 
 
