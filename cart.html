@@ -3,13 +3,16 @@
 <head>
 	<!-- Meta Tag -->
 	<script defer src="cart.js"></script>
+	<link rel="stylesheet" href="cart.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='copyright' content=''>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Title Tag  -->
+
     <title>HomeTech</title>
+
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="images/favicon.ico">
 	<!-- Web Font -->
@@ -86,6 +89,7 @@
 							</div>
 							<!--/ End Search Form -->
 							<div class="mobile-nav"></div>
+
 						</div>
 						<div class="col-lg-8 col-md-7 col-12">
 						</div>
@@ -94,6 +98,7 @@
 								<!-- Search Form -->
 								<div class="sinlge-bar shopping">
 									<a href="#" class="single-icon"><i class="ti-bag"></i> <span id="cartSpan" class="total-count">0</span></a>
+
 									<!-- Shopping Item -->
 									<div class="shopping-item">
 										<div class="dropdown-cart-header">
@@ -127,9 +132,11 @@
 										<div class="navbar-collapse">	
 											<div class="nav-inner">	
 												<ul class="nav main-menu menu navbar-nav">
+
 													<li class="active"><a href="/index.html">Home</a></li>
 													<li><a href="product.html">Product</a></li>	
 													<li><a href="#">Cart<i class="ti-angle-down"></i></a>
+
 														<ul class="dropdown">
 															<li><a href="cart.html">Cart</a></li>
 														</ul>
@@ -168,23 +175,26 @@
 	<!-- End Breadcrumbs -->
 			
 	<!-- Shopping Cart -->
+
 	<div class="shopping-cart section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<!-- Shopping Summery -->
-					<table class="table shopping-summery">
+					<table class="table shopping-summery" >
 						<thead>
-							<tr class="main-hading">
+							<tr  id="tableHeader" class="main-hading">
 								<th>PRODUCT</th>
-								<th>NAME</th>
+                                <th>NAME</th>
+                                <th>DESCRIPTION</th>
 								<th class="text-center">UNIT PRICE</th>
-								<th class="text-center">QUANTITY</th>
-								<th class="text-center">TOTAL</th> 
-								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
+								<th>QUANTITY</th>
+								
+								
+								
 							</tr>
 						</thead>
-					
+
 					</table>
 					<!--/ End Shopping Summery -->
 				</div>
@@ -194,8 +204,9 @@
 					<!-- Total Amount -->
 					<div class="total-amount">
 						<div class="row">
-							<div class="col-lg-8 col-md-5 col-12">
+							<div id="shipperContainer" class="col-lg-8 col-md-5 col-12">
 								<div class="left">
+
 									<div class="coupon">
 										<form action="#" target="_blank">
 											<input name="Coupon" placeholder="Enter Your Coupon">
@@ -204,12 +215,14 @@
 									</div>
 									<div class="checkbox">
 										<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Shipping (+100kr)</label>
+
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-4 col-md-7 col-12">
 								<div class="right">
 									<ul>
+
 										<li>Cart Subtotal<span>0kr</span></li>
 										<li>Shipping<span>Free</span></li>
 										<li>You Save<span>0kr</span></li>
@@ -219,6 +232,7 @@
 										<!-- <button id="testBtn">test</button> -->
 										<a href="#" id="checkOutBtn" class="btn">Checkout</a>
 										<a href="#" class="btn">Continue shopping</a>
+
 									</div>
 								</div>
 							</div>

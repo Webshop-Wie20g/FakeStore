@@ -96,6 +96,10 @@ function setItems(product){
     }
 
     localStorage.setItem("cart", JSON.stringify(cart))
+
+    console.log(cart)
+    
+    console.log(cartItem)
     
 }
 

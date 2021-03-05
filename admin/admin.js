@@ -141,7 +141,7 @@ async function update(id,stock) {
     body.append("action","updateStock")
     body.append("id",productid)
     body.append("amount",amount)
-    const results = await makeRequest("../../api/recievers/AdminReceiver.php", "POST", body)
+    const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
     console.log(results)
     if(results){
         alert("product updated")
@@ -162,9 +162,9 @@ async function showNewsLetterSubscribers() {
                     var productID = document.createElement("th");
                     productID.innerHTML = "id";
                     var productName = document.createElement("th");
-                    productName.innerHTML = "userName";
+                    productName.innerHTML = "Email";
                     var productCategory = document.createElement("th");
-                    productCategory.innerHTML = "email";
+                    productCategory.innerHTML = "Username";
       
                     table.appendChild(productID);
                     table.appendChild(productName);
