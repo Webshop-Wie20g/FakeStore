@@ -61,7 +61,6 @@ async function orderDetailes(){
     body.set("action", "saveOrder")
     body.set("order", JSON.stringify(newOrder))
 
-    console.log("detta kommer från cart.js ", newOrder)
 
     const result =  await makeRequest("./api/recievers/orderReciever.php", "POST", body)
     console.log(result)
@@ -138,7 +137,7 @@ function getCartItems() {
         }else{
             product.quantity - 1
         }
-        console.log(productList)
+
     }
 
 
@@ -163,7 +162,7 @@ function getCartItems() {
 
 
     productNr++
-    console.log(showTotal)
+
     document.getElementById("totalCost").innerHTML = showTotal
     });
     
