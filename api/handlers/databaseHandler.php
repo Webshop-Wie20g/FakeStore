@@ -39,5 +39,11 @@ Class Database {
         $preparedQuery->execute();
         return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
     }
+
+    public function connect() {
+        return $this->db;
+    }
 }
 ?>
+
+

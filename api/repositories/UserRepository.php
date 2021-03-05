@@ -1,6 +1,6 @@
 <?php
 
-require_once('database.php');
+require("./../handlers/databaseHandler.php");
 class User {
     private $connection;
     private $database;
