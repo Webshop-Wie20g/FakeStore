@@ -6,6 +6,9 @@ require("./../classes/productClasses.php");
 
 require("./../classes/newsletterClass.php");
 
+require("./../classes/categoryClasses.php");
+
+
 Class Database {
 
     function __construct(){
@@ -42,4 +45,5 @@ Class Database {
     }
 }
 ?>
+
 
