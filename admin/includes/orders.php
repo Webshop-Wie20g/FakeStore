@@ -26,7 +26,7 @@ session_start();
       <script src="../admin.js"></script>
       <title>Admin page</title>
 </head>
-   <body onload="getAllproducts()">
+   <body onload="getOrders()">
    <?php include 'header.php';?>
   <div class="job-profile mb-4">
     <div class="container-fluid">
@@ -36,11 +36,9 @@ session_start();
 
         </div>
         <div class="col-md-8 col-lg-9">
-          <div class="job-profile-details" id="ProductList">
-            <h2>Products</h2>
-            <select id="id" class=" itemId form-control mb-3"></select>
+          <div class="job-profile-details" id="inserthere">
+            <h2>Orders</h2>
 
-            <button class="btn btn-danger" onclick="removeProductFromList()">Remove Item</button>
 
           </div>
           </div>

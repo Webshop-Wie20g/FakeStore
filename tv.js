@@ -3,10 +3,10 @@ window.addEventListener("load", initsite)
 
 
 async function initsite(){
-    const product = await makeRequest("./api/recievers/productReciever.php", "GET")
+    const product = await makeRequest("./api/recievers/categoryReciever.php?action=getTvCategory", "GET")
     
     renderProducts(product)
-    
+    console.log(product)
 }
 
 
@@ -96,10 +96,6 @@ function setItems(product){
     }
 
     localStorage.setItem("cart", JSON.stringify(cart))
-
-    console.log(cart)
-    
-    console.log(cartItem)
     
 }
 
