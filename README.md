@@ -1,11 +1,12 @@
 # FakeStore
-** Alla krav för betyget godkänt uppfyllas **
+# Alla krav för betyget godkänt uppfyllas#
 
-Kravspecifikation på projektet:
 
-✅ Alla sidor skall vara responsiva. (G) 
-✅ Arbetet ska implementeras med objektorienterade principer. (G)
-✅ Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
+## Kravspecifikation på projektet:
+
+- ✅ Alla sidor skall vara responsiva. (G) 
+- ✅ Arbetet ska implementeras med objektorienterade principer. (G)
+- ✅ Skapa ett konceptuellt ER diagram, detta ska lämnas in vid idégodkännandet G)
 ✅ Beskriv er företagsidé i en kort textuell presentation, detta ska lämnas in vid idégodkännandet (G)
 ✅ All data som programmet utnyttjar ska vara sparat i en MYSQL databas (produkter, beställningar, konton mm) (G)
 ✅ Det ska finnas ett normaliserat diagram över databasen i gitrepot G)
