@@ -6,7 +6,7 @@ async function initsite(){
     const product = await makeRequest("./api/recievers/categoryReciever.php?action=getTvCategory", "GET")
     
     renderProducts(product)
-    console.log(product)
+    
 }
 
 
