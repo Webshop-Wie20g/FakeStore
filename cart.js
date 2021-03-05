@@ -25,10 +25,9 @@ function cartSpan(){
 function checkOut(){
     
     orderDetailes()
-/*    alert("Thank you for buying")
+    alert("Thank you for buying")
     localStorage.clear()
     location.reload()
-*/
 }
 
 async function orderDetailes(){
@@ -120,6 +119,16 @@ function getCartItems() {
     buyBtn.style.backgroundColor = "#F7941D"
     buyBtn.style.color = "white"
     buyBtn.data = product
+    buyBtn.addEventListener("click", removeItem)
+    function removeItem(){
+
+        if (product.quantity = 1) {
+            productList.splice(product.id, 1)
+        }else{
+            product.quantity - 1
+        }
+        console.log(productList)
+    }
 
 
     let quantityContainer = document.createElement("h7")
@@ -136,7 +145,7 @@ function getCartItems() {
     imgContainer.id = "imgContainer"
     imgContainer.src = productList[productNr].product.image
        
-    priceContainer.appendChild(buyBtn)
+    //priceContainer.appendChild(buyBtn)
     productCard.append(imgContainer, nameContainer, descContainer, priceContainer, quantityContainer)
     mainContainerCart.appendChild(productCard)
 
@@ -150,7 +159,7 @@ function getCartItems() {
 }
 
 
-
+/* 
 async function getShippers(){
     const result = await makeRequest("./api/recievers/orderReciever.php", "GET")
     
@@ -163,7 +172,7 @@ async function getShippers(){
         document.getElementById('name').value="result[resultNr].name"
         resultNr++
 
- /* 
+ 
             let shipperResult = document.getElementById("name").value
 
             let body = new FormData()
@@ -197,8 +206,7 @@ async function getShippers(){
 										<option>kid’s item</option>
 									</select>
 
-
-        */  
+ 
     });
 
 
@@ -206,4 +214,5 @@ async function getShippers(){
     
 }
 
-getShippers()
+        
+getShippers()*/ 
