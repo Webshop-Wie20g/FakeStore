@@ -17,7 +17,7 @@ async function getAllproductsFromAdmin(){
     let body = new FormData()
     body.append("action", "productList")
 
-    const results = await makeRequest("../../api/recievers/AdminReceiver.php","POST",body)
+    const results = await makeRequest("../../api/recievers/AdminReciever.php","POST",body)
     console.log(results);
     var table = document.createElement("table");
     table.className = "table"
@@ -57,7 +57,7 @@ async function getAllproductsFromAdmin(){
 
 
 
-async function addProduct(name,price,description,unitsInStock, image,category){
+async function addProduct(name,price,description,unitsInStock,image){
 
 
     
@@ -83,16 +83,16 @@ async function addProduct(name,price,description,unitsInStock, image,category){
       
       
   
-      const results = await makeRequest("../../api/recievers/AdminReceiver.php", "POST", body)
+      const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
       console.log(results)
       
-      window.location("admin.php")
+    //   window.location("admin.php")
   }
  
   async function getAllproducts(){
     let body = new FormData()
 
-    const results = await makeRequest("../../api/recievers/AdminReceiver.php","GET")
+    const results = await makeRequest("../../api/recievers/AdminReciever.php","GET")
     
     console.log(results);
     
@@ -100,7 +100,7 @@ async function addProduct(name,price,description,unitsInStock, image,category){
         var option = document.createElement("option");
         option.setAttribute("value", results[i]["id"]);
         option.innerHTML = results[i]["name"];
-        var querys= document.getElementsByClassName("productList")[0]
+        var querys= document.getElementsByClassName("itemId")[0]
         querys.appendChild(option);
     }
         
@@ -119,7 +119,7 @@ async function addProduct(name,price,description,unitsInStock, image,category){
     body.append("productIdToRemove",productid)
     
 
-    const results = await makeRequest("../../api/recievers/AdminReceiver.php", "POST", body)
+    const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
     console.log(results)
     if(results){
         alert("product removed")
@@ -141,7 +141,7 @@ async function update(id,stock) {
     body.append("action","updateStock")
     body.append("id",productid)
     body.append("amount",amount)
-    const results = await makeRequest("../../api/recievers/AdminReceiver.php", "POST", body)
+    const results = await makeRequest("../../api/recievers/AdminReciever.php", "POST", body)
     console.log(results)
     if(results){
         alert("product updated")
@@ -150,3 +150,105 @@ async function update(id,stock) {
 }
 
 
+async function showNewsLetterSubscribers() {
+
+    let body = new FormData()
+    body.append("action", "showSubscribers")
+
+    const results = await makeRequest("../../api/recievers/AdminReciever.php","POST",body)
+    console.log(results);
+    var table = document.createElement("table");
+    table.className = "table"
+                    var productID = document.createElement("th");
+                    productID.innerHTML = "id";
+                    var productName = document.createElement("th");
+                    productName.innerHTML = "Email";
+                    var productCategory = document.createElement("th");
+                    productCategory.innerHTML = "Username";
+      
+                    table.appendChild(productID);
+                    table.appendChild(productName);
+                    table.appendChild(productCategory);
+                    for (var i = 0; i < results.length; i++) {
+                        var tr = document.createElement("tr");
+                        var productIDLoop = document.createElement("td");
+                        productIDLoop.innerHTML = results[i]["id"];
+                        tr.appendChild(productIDLoop);
+                        var productNameLoop = document.createElement("td");
+                        productNameLoop.innerHTML = results[i]["userName"];
+                        tr.appendChild(productNameLoop);
+                        var productCategoryLoop = document.createElement("td");
+                        productCategoryLoop.innerHTML = results[i]["email"];
+                        tr.appendChild(productCategoryLoop);
+
+                        table.appendChild(tr);
+                    }
+                   let productListDiv =  document.getElementById("ProductList")
+                   productListDiv.appendChild(table)
+}
+
+
+
+
+
+
+
+async function getOrders(){
+    let body = new FormData()
+    body.append("action", "orderList")
+
+    const results = await makeRequest("../../api/recievers/AdminReciever.php","POST",body)
+    console.log(results);
+    var table = document.createElement("table");
+    table.className = "table"
+                    var dateth = document.createElement("th");
+                    dateth.innerHTML = "Date";
+
+                    var idth = document.createElement("th");
+                    idth.innerHTML = "Order ID";
+                    var statusth = document.createElement("th");
+                    statusth.innerHTML = "Status";
+
+                    table.appendChild(dateth);
+                    table.appendChild(idth);
+                    table.appendChild(statusth);
+
+                    for (var i = 0; i < results.length; i++) {
+                        var tableRow = document.createElement("tr");
+                        var dateTd = document.createElement("td");
+                        dateTd.innerHTML = results[i]["date"];
+                        tableRow.appendChild(dateTd);
+                        var orderIdTd = document.createElement("td");
+                        orderIdTd.innerHTML = results[i]["id"];
+                        tableRow.appendChild(orderIdTd);
+                        var status = document.createElement("td");
+                        status.innerHTML = results[i]["status"];
+                        if(results[i]["status"]==1){
+                            status.innerHTML = "Shipped"
+                        } else {
+                            status.innerHTML = "Not Shipped"
+                        }
+                        tableRow.appendChild(status);
+                        table.appendChild(tableRow);
+                    }
+
+var insert = document.getElementById("inserthere");
+insert.appendChild(table)
+}
+
+
+
+async function makeRequest(url,method,body){
+
+    try {
+
+        const respone = await fetch(url,{method,body})
+
+    
+    return respone.json()
+
+} catch(error) {
+        console.log(error)
+    }
+
+}

@@ -4,11 +4,16 @@ require("./../classes/orderClasses.php");
 
 require("./../classes/productClasses.php");
 
+require("./../classes/newsletterClass.php");
+
+require("./../classes/categoryClasses.php");
+
+
 Class Database {
 
     function __construct(){
 
-        $dns = "mysql:host=localhost;dbname=store";
+        $dns = "mysql:host=localhost;dbname=store5";
         $user = "root";
         $pass = "root";
 
@@ -35,5 +40,10 @@ Class Database {
         return $preparedQuery->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
+    public function connect() {
+        return $this->db;
+    }
 }
 ?>
+
+

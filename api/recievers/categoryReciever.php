@@ -6,11 +6,18 @@ try{
         require("./../repositories/productRepository.php");
 
         if($_SERVER["REQUEST_METHOD"] == "GET"){
-            
-            
-            echo json_encode(getAllProducts());
-            
-            
+            if($_GET["action"]== "getTvCategory"){
+                echo json_encode(getTvCategory());
+                exit;
+                
+            }elseif ($_GET["action"]== "getPcCategory") {
+                echo json_encode(getPcCategory());
+                exit;
+            }elseif ($_GET["action"]== "getPhoneCategory") {
+                echo json_encode(getPhoneCategory());
+                exit;
+            }
+            echo json_encode(getAllcategories());
             exit;
 
         }else{
