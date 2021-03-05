@@ -8,8 +8,10 @@ function initsite(){
    
         getCartItems()
     }else{
-        console.log("inga produkter i cart")
+            console.log("inga produkter i cart")
     }
+       
+    
     
     
 }
@@ -24,10 +26,19 @@ function cartSpan(){
 }
 function checkOut(){
     
-    orderDetailes()
+    if (localStorage.getItem('cart') !=null) {
+   
+        orderDetailes()
     alert("Thank you for buying")
     localStorage.clear()
     location.reload()
+
+    }else{
+        alert("inga produkter i cart")
+    }
+
+
+    
 }
 
 async function orderDetailes(){

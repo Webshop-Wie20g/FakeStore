@@ -199,7 +199,22 @@
 								
 							</tr>
 						</thead>
+						<tbody>
+							<tr id="mainContainerCart" class="table shopping-summery">
 
+							</tr>
+						</tbody>
+					</table>
+					<!--/ End Shopping Summery -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+
+				</div>
+			</div>
+		</div>
+	</div>
 					</table>
 					<!--/ End Shopping Summery -->
 				</div>
@@ -211,32 +226,26 @@
 						<div class="row">
 							<div id="shipperContainer" class="col-lg-8 col-md-5 col-12">
 								<div class="left">
-
-									<div class="coupon">
-										<form action="#" target="_blank">
-											<input name="Coupon" placeholder="Enter Your Coupon">
-											<button class="btn">Apply</button>
-										</form>
-									</div>
-									<div class="checkbox">
-										<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Shipping (+100kr)</label>
-
-									</div>
+									<div class="coupon"><label for="inputid1">Shipper</label>
+										<form>
+											<input type="radio" id="male" name="gender" value="male">
+											<label for="male">Amazone drones</label><br>
+											<input type="radio" id="female" name="gender" value="female">
+											<label for="female">Tims snabbaste cykel</label><br>
+											<input type="radio" id="other" name="gender" value="other">
+											<label for="other">uuber</label>
+										  </form>
 								</div>
 							</div>
 							<div class="col-lg-4 col-md-7 col-12">
 								<div class="right">
 									<ul>
-
-										<li>Cart Subtotal<span>0kr</span></li>
-										<li>Shipping<span>Free</span></li>
-										<li>You Save<span>0kr</span></li>
-										<li id="totalCost" class="last">You Pay<span>0kr</span></li>
+										<li class="last">Total Cost: <span id="totalCost"></span></li>
 									</ul>
 									<div class="button5">
 										<!-- <button id="testBtn">test</button> -->
-										<a href="#" id="checkOutBtn" class="btn">Checkout</a>
-										<a href="#" class="btn">Continue shopping</a>
+										<button id="checkOutBtn" class="btn">Checkout</button>
+
 
 									</div>
 								</div>
