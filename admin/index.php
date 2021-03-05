@@ -6,7 +6,7 @@ require_once("../api/repositories/UserRepository.php");
 $user = new User();
 if (isset($_SESSION["user"])) {
   $username = $_SESSION["user"];
-  echo "Hej", " ", $_SESSION["user"], " ";
+  
   if ($user->adminChecker($username) == true) {
     header("Location: admin.php");
     exit();

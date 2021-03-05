@@ -9,7 +9,7 @@
 </head>
 <body>
     <header class="navbar navbar-light bg-light" >
-    <h1> WELCOME</h1>
+   <a href="../admin.php"><h1> WELCOME</h1></a> 
     </header>
 </body>
 </html>

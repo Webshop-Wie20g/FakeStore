@@ -1,5 +1,7 @@
 <?php
-require_once('../../admin/db.php');
+require("./../handlers/databaseHandler.php");
+// require("../api/handlers/databaseHandler.php");
+
 
 class Admin{
     private $connection;
