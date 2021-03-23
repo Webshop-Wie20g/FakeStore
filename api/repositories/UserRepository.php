@@ -1,6 +1,6 @@
 <?php
 
-require("./../handlers/databaseHandler.php");
+require_once __DIR__ .'../../handlers/databaseHandler.php';
 class User {
     private $connection;
     private $database;
