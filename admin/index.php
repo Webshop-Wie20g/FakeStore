@@ -1,19 +1,21 @@
+<?php
+// session_start();
+// require_once $_SERVER["DOCUMENT_ROOT"]."api/repositories/AdminRepository.php";
+// $user = new User();
+// if (isset($_SESSION["user"])) {
+//   $username = $_SESSION["user"];
+  
+//   if ($user->adminChecker($username) == true) {
+//     header("Location: admin.php");
+//     exit();
+//   }
+// }
+
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-session_start();
-require_once("../api/repositories/UserRepository.php");
-$user = new User();
-if (isset($_SESSION["user"])) {
-  $username = $_SESSION["user"];
-  
-  if ($user->adminChecker($username) == true) {
-    header("Location: admin.php");
-    exit();
-  }
-}
-
-?>
 
 
 <head>

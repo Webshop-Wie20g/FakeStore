@@ -1,19 +1,19 @@
 <?php
-session_start();
-   require_once("../../api/repositories/UserRepository.php");
-   $user = new User();
-   if (isset($_SESSION["user"])) {
-      $username = $_SESSION["user"];
-      if ($user->adminChecker($username) != true) {
-         header("Location: ../index.php");
-         exit();
-      } 
+// session_start();
+//    require_once("../../api/repositories/UserRepository.php");
+//    $user = new User();
+//    if (isset($_SESSION["user"])) {
+//       $username = $_SESSION["user"];
+//       if ($user->adminChecker($username) != true) {
+//          header("Location: ../index.php");
+//          exit();
+//       } 
 
-   } else {
-      echo var_dump($_SESSION);
-      header("Location: ../index.php");
-      exit();
-   }
+//    } else {
+//       echo var_dump($_SESSION);
+//       header("Location: ../index.php");
+//       exit();
+  //  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

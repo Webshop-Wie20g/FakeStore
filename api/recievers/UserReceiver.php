@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once('../repositories/UserRepository.php');
+require_once('../repositories/AdminRepository.php');
 
 
 try {
@@ -12,7 +12,7 @@ try {
         } else {
             $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $user = new User();
+            $user = new Admin();
 
             if($_POST["action"] == "loginUser") {            
                 $user->userLogin($username, $password);
