@@ -1,12 +1,17 @@
 <?php
 
-require("./../classes/orderClasses.php");
+// require("./../classes/orderClasses.php");
 
-require("./../classes/productClasses.php");
+// require("./../classes/productClasses.php");
 
-require("./../classes/newsletterClass.php");
+// require("./../classes/newsletterClass.php");
 
-require("./../classes/categoryClasses.php");
+// require("./../classes/categoryClasses.php");
+
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/classes/orderClasses.php'); 
+require_once(__ROOT__.'/classes/productClasses.php'); 
+require_once(__ROOT__.'/classes/categoryClasses.php'); 
 
 
 Class Database {

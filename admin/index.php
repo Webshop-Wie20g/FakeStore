@@ -1,7 +1,7 @@
 <?php
 session_start();
 // include($_SERVER["DOCUMENT_ROOT"] . "/api/repositories/AdminRepository.php");
-require_once(".././api/repositories/AdminRepository.php");
+require_once("../api/repositories/AdminRepository.php");
 $user = new Admin();
 if (isset($_SESSION["user"])) {
   $username = $_SESSION["user"];
