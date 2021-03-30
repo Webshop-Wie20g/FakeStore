@@ -10,26 +10,25 @@ function saveOrder($order) {
     $orderToAdd->id = null;
     $orderToAdd->date = $order->date;
 
-    //error_log(json_encode($order));
+    error_log(json_encode($orderToAdd));
  
     $db->runQuery("INSERT INTO orders (date) VALUES (:date);", $order);
-   
+   /*
     //orderid från db
-    // error_log(json_encode($order["cartItems"]));
-    // foreach ($order["cartItems"] as $cartItem){
+    error_log(json_encode($order["cartItems"]));
+    foreach ($order["cartItems"] as $cartItem){
         
+        //$AddItems = new Order();
         
-    //     $orderDetailes = array(
-    //         "productId" => $cartItem["product"]["id"],
-    //         "quantity" => $cartItem["quantity"]
-                //Lägg till pris
-    //     );
-    //     error_log(json_encode($orderDetailes));
+        $sqlArray = array(
+            "productId" => $cartItem["product"]["id"],
+            "quantity" => $cartItem["quantity"]
+        );
     
         
 
-    // $db->runQuery("INSERT INTO order_product_detail (productId, quantity) VALUES (:productId, :quantity);", $orderDetailes);
-    // };
+    $db->runQuery("INSERT INTO test (productId, quantity) VALUES (:productId, :quantity);", $sqlArray);
+    };*/
 }
 
 function getAllShippers(){

@@ -6,7 +6,7 @@
 // define('__ROOT__', dirname(dirname(__FILE__))); 
 // require(__ROOT__.'/handlers/db.php'); 
 define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/handlers/databaseHandler.php'); 
+require_once(__ROOT__.'/handlers/db.php'); 
 
 // require_once $_SERVER["DOCUMENT_ROOT"]."\handlers\databaseHandler.php";
 
