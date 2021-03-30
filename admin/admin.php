@@ -1,7 +1,7 @@
 <?php
 // session_start();
-// require_once("../api/repositories/UserRepository.php");
-// $user = new User();
+// require_once("../api/repositories/AdminRepository.php");
+// $user = new Admin();
 // if (isset($_SESSION["user"])) {
 //   $username = $_SESSION["user"];
 //   if ($user->adminChecker($username) != true) {

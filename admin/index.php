@@ -1,15 +1,16 @@
 <?php
-// session_start();
-// require_once $_SERVER["DOCUMENT_ROOT"]."api/repositories/AdminRepository.php";
-// $user = new User();
-// if (isset($_SESSION["user"])) {
-//   $username = $_SESSION["user"];
+session_start();
+// include($_SERVER["DOCUMENT_ROOT"] . "/api/repositories/AdminRepository.php");
+require_once(".././api/repositories/AdminRepository.php");
+$user = new Admin();
+if (isset($_SESSION["user"])) {
+  $username = $_SESSION["user"];
   
-//   if ($user->adminChecker($username) == true) {
-//     header("Location: admin.php");
-//     exit();
-//   }
-// }
+  if ($user->adminChecker($username) == true) {
+    header("Location: admin.php");
+    exit();
+  }
+}
 
 ?> 
 

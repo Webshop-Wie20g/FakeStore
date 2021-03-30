@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once('../repositories/AdminRepository.php');
+require_once('../../api/repositories/AdminRepository.php');
 
 
 try {

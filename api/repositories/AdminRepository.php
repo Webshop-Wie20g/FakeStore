@@ -1,8 +1,14 @@
 <?php
+// require $_SERVER['DOCUMENT_ROOT']. "/handlers/databaseHandler.php";
+// include($_SERVER["DOCUMENT_ROOT"] . "handlers/databaseHandler.php");
 // require_once __DIR__ .'../../handlers/databaseHandler.php';
 // require("../api/handlers/databaseHandler.php");
-require("./../handlers/databaseHandler.php");
+// define('__ROOT__', dirname(dirname(__FILE__))); 
+// require(__ROOT__.'/handlers/db.php'); 
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require_once(__ROOT__.'/handlers/db.php'); 
 
+// require_once $_SERVER["DOCUMENT_ROOT"]."\handlers\databaseHandler.php";
 
 class Admin{
     private $connection;

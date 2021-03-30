@@ -1,5 +1,5 @@
 <?php
-require_once('./../repositories/AdminRepository.php');
+require('./../repositories/AdminRepository.php');
 
 try {
     if(isset($_SERVER["REQUEST_METHOD"])){
