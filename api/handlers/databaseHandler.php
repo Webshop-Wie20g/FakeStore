@@ -18,7 +18,6 @@ Class Database {
 
     function __construct(){
 
-        $dns = "mysql:host=localhost;dbname=store5";
         $dns = "mysql:host=localhost;dbname=store4";
         $user = "root";
         $pass = "root";
