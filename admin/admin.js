@@ -7,7 +7,11 @@ async function makeRequest(url,method,body){
     
     return respone.json()
 
+
 } catch(error) {
+
+    console.log('Error happened here!')
+    console.error(error)
     }
 
 }

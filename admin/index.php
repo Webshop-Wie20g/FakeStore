@@ -1,8 +1,8 @@
 <?php
 session_start();
 // include($_SERVER["DOCUMENT_ROOT"] . "/api/repositories/AdminRepository.php");
-require_once("../api/repositories/AdminRepository.php");
-$user = new Admin();
+require_once("../api/repositories/UserRepository.php");
+$user = new User();
 if (isset($_SESSION["user"])) {
   $username = $_SESSION["user"];
   
@@ -74,6 +74,7 @@ if (isset($_SESSION["user"])) {
   <script src="login.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
 </body>
 
 </html>

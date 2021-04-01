@@ -1,5 +1,7 @@
 <?php
 require('./../repositories/AdminRepository.php');
+// define('__ROOT__', dirname(dirname(__FILE__))); 
+// require_once(__ROOT__.'/repositories/AdminRepository.php'); 
 
 try {
     if(isset($_SERVER["REQUEST_METHOD"])){

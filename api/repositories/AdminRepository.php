@@ -5,8 +5,8 @@
 // require("../api/handlers/databaseHandler.php");
 // define('__ROOT__', dirname(dirname(__FILE__))); 
 // require(__ROOT__.'/handlers/db.php'); 
-define('__ROOT__', dirname(dirname(__FILE__))); 
-require_once(__ROOT__.'/handlers/databaseHandler.php'); 
+require("./../handlers/databaseHandler.php");
+
 
 // require_once $_SERVER["DOCUMENT_ROOT"]."\handlers\databaseHandler.php";
 
@@ -112,12 +112,17 @@ class Admin{
         return $res;
     }
 
+    
+
+
     function adminChecker($username) {
         $sql = "SELECT role FROM users WHERE userName = :username";
         $statement = $this->connection->prepare($sql);
         $statement->bindParam(':username', $username);
         $statement->execute();
         $checkAdmin = $statement->fetch(PDO::FETCH_ASSOC);
+
+
         if ($checkAdmin["role"] == "1") { 
             return true;
         } else {

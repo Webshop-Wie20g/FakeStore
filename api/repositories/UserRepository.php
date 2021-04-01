@@ -1,7 +1,7 @@
 <?php
 
-require("../handlers/databaseHandler.php");
-
+define('__ROOT__', dirname(dirname(__FILE__))); 
+require(__ROOT__.'/handlers/databaseHandler.php'); 
 class User {
     private $connection;
     private $database;
